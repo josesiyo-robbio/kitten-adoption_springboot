@@ -3,7 +3,7 @@ package com.josesiyo_robbio.kitten_adoption.kitten.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
-public class AddKittyRequest
+public class EditKittyRequest
 {
     @NotBlank(message = "Name cannot be empty")
     private String name;

@@ -1,9 +1,10 @@
-package com.josesiyo_robbio.kitten_adoption.kitten.request;
+package com.josesiyo_robbio.kitten_adoption.kitten.response;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-public class AddKittyRequest
+public class EditKittenResponse
 {
     @NotBlank(message = "Name cannot be empty")
     private String name;
@@ -17,6 +18,7 @@ public class AddKittyRequest
     @NotBlank(message = "Photo cannot be empty")
     private String photo;
 
+    @NotNull(message = "Adoption status cannot be null")
     private Boolean adopted;
 
     @Positive(message = "Age must be a positive number")
