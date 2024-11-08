@@ -16,6 +16,19 @@ public class AdoptionDto
     private String message;
     private String social_media_url;
 
+    public AdoptionDto(ApplicationStatusDto status, String applicant_name, String phone, String email, String message, String social_media_url, Long kitten_id) {
+        this.status = status;
+        this.applicant_name = applicant_name;
+        this.phone = phone;
+        this.email = email;
+        this.message = message;
+        this.social_media_url = social_media_url;
+        this.kitten_id = kitten_id;
+    }
+
+    public AdoptionDto() {
+
+    }
 
 
     //GETTERS

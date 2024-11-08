@@ -12,4 +12,6 @@ import java.util.List;
 
     List<Adoption> findByKittenId(int kittenId);
 
+
+   // List<Adoption> findByStatus(String status);
 }
