@@ -3,6 +3,8 @@ package com.josesiyo_robbio.kitten_adoption.shelter.repository;
 import com.josesiyo_robbio.kitten_adoption.shelter.dto.ApplicationStatusDto;
 import com.josesiyo_robbio.kitten_adoption.shelter.model.Adoption;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -11,6 +13,11 @@ import java.util.List;
     List<Adoption> findByStatus(ApplicationStatusDto status);
 
     List<Adoption> findByKittenId(int kittenId);
+
+
+    @Modifying
+    @Query("UPDATE Adoption a SET a.status = 'rejected' WHERE a.kittenId = :kittenId AND a.id <> :adoptionId")
+    void declineOtherRequests(Long kittenId, Long adoptionId);
 
 
    // List<Adoption> findByStatus(String status);
