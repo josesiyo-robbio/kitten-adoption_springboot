@@ -16,8 +16,7 @@ public class AllPendingAdoptionResponse
     }
 
 
-    //GETTERS AND SETTERS
-    public void setAdoptions(List<AdoptionDto> adoptions)   { this.adoptions = adoptions;   }
+    //GETTERS
     public List<AdoptionDto> getAdoptions()                 { return adoptions;             }
 
 }

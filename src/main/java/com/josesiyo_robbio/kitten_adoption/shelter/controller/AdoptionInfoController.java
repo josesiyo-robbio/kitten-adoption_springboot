@@ -28,25 +28,16 @@ public class AdoptionInfoController
 
 
         //use the service
-        AdoptionInfoResponse response = new AdoptionInfoResponse();
-        response.setApplicant_name(info.getApplicant_name());
-        response.setPhone(info.getPhone());
-        response.setEmail(info.getEmail());
-        response.setMessage(info.getMessage());
-        response.setSocial_media_url(info.getSocial_media_url());
-        response.setStatus(String.valueOf(info.getStatus()));
+        AdoptionInfoResponse response = new AdoptionInfoResponse(
+                info.getStatus(),
+                info.getApplicant_name(),
+                info.getPhone(),
+                info.getEmail(),
+                info.getMessage(),
+                info.getSocial_media_url()
+        );
 
-
-        //convert to response
-        AdoptionInfoResponse infoResponse = new AdoptionInfoResponse();
-        infoResponse.setApplicant_name(info.getApplicant_name());
-        infoResponse.setPhone(info.getPhone());
-        infoResponse.setEmail(info.getEmail());
-        infoResponse.setMessage(info.getMessage());
-        infoResponse.setSocial_media_url(info.getSocial_media_url());
-        infoResponse.setStatus(String.valueOf(info.getStatus()));
-
-        return ResponseEntity.ok(infoResponse);
+        return ResponseEntity.ok(response);
     }
 
 }
