@@ -1,15 +1,14 @@
 package com.josesiyo_robbio.kitten_adoption.shelter.service;
 
 import com.josesiyo_robbio.kitten_adoption.shelter.dto.AdoptionDto;
-import com.josesiyo_robbio.kitten_adoption.shelter.dto.KittenShelterDto;
 import com.josesiyo_robbio.kitten_adoption.shelter.model.Adoption;
 import com.josesiyo_robbio.kitten_adoption.shelter.model.KittenShelter;
 import com.josesiyo_robbio.kitten_adoption.shelter.repository.AdoptionRepository;
 import com.josesiyo_robbio.kitten_adoption.shelter.repository.KittenShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
+
 
 
 @Service
@@ -21,11 +20,13 @@ public class NewAdoptionService
     @Autowired
     private KittenShelterRepository kittenShelterRepository;
 
+
     public NewAdoptionService (AdoptionRepository adoptionRepository, KittenShelterRepository kittenShelterRepository)
     {
         this.adoptionRepository = adoptionRepository;
         this.kittenShelterRepository = kittenShelterRepository;
     }
+
 
     public AdoptionDto newAdoptionReq (AdoptionDto adoptionDto)
     {
@@ -51,4 +52,5 @@ public class NewAdoptionService
             throw new IllegalArgumentException("The kitten with ID " + adoptionDto.getKitten_id() + " is not available for adoption.");
         }
     }
+
 }

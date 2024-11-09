@@ -5,15 +5,8 @@ public class NewAdoptionResponse
     private String message;
 
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-
-
+    //GETTERS AND SETTERS
+    public String getMessage()              { return message;           }
+    public void setMessage(String message)  { this.message = message;   }
 
 }

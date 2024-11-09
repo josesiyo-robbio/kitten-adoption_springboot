@@ -1,6 +1,5 @@
 package com.josesiyo_robbio.kitten_adoption.shelter.service;
 
-
 import com.josesiyo_robbio.kitten_adoption.shelter.model.Adoption;
 import com.josesiyo_robbio.kitten_adoption.shelter.model.KittenShelter;
 import com.josesiyo_robbio.kitten_adoption.shelter.repository.AdoptionRepository;
@@ -9,6 +8,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+
 
 @Service
 public class ApprovedAdoptionService
@@ -32,7 +33,8 @@ public class ApprovedAdoptionService
         KittenShelter kittenShelter = kittenShelterRepository.findById(kittenId)
                 .orElseThrow(() -> new EntityNotFoundException("KittenShelter not found with id: " + kittenId));
 
-        if (kittenShelter.isAdopted()) {
+        if (kittenShelter.isAdopted())
+        {
             // If the kitten is already adopted, throw an exception or handle the error as needed
             throw new IllegalStateException("This kitten has already been adopted.");
         }
@@ -44,12 +46,14 @@ public class ApprovedAdoptionService
         adoption.setStatus("approved");
         adoptionRepository.save(adoption);
 
+
         // Second transaction: Decline other adoption requests for the same kittenId
         adoptionRepository.declineOtherRequests(kittenId, adoptionId);
+
 
         // Third transaction: Mark the kitten as adopted
         kittenShelter.setAdopted(true);
         kittenShelterRepository.save(kittenShelter); // Persist the change to the database
     }
 
-}   
+}

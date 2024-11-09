@@ -5,13 +5,13 @@ import com.josesiyo_robbio.kitten_adoption.shelter.model.Adoption;
 import com.josesiyo_robbio.kitten_adoption.shelter.repository.AdoptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
-import java.util.OptionalInt;
+
 
 
 @Service
-public class AdoptionInfoService {
+public class AdoptionInfoService
+{
     @Autowired
     private AdoptionRepository adoptionRepository;
 
@@ -38,5 +38,6 @@ public class AdoptionInfoService {
             throw new IllegalArgumentException("Adoption with ID " + adoptionId + " not found");
         }
     }
+
 }
 

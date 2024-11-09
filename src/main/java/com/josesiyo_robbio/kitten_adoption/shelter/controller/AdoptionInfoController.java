@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RequestMapping("/api/shelter")
 @RestController
 public class AdoptionInfoController
@@ -24,6 +26,7 @@ public class AdoptionInfoController
         //call the service
         AdoptionDto info = adoptionInfoService.info(id);
 
+
         //use the service
         AdoptionInfoResponse response = new AdoptionInfoResponse();
         response.setApplicant_name(info.getApplicant_name());
@@ -32,6 +35,7 @@ public class AdoptionInfoController
         response.setMessage(info.getMessage());
         response.setSocial_media_url(info.getSocial_media_url());
         response.setStatus(String.valueOf(info.getStatus()));
+
 
         //convert to response
         AdoptionInfoResponse infoResponse = new AdoptionInfoResponse();
@@ -43,9 +47,6 @@ public class AdoptionInfoController
         infoResponse.setStatus(String.valueOf(info.getStatus()));
 
         return ResponseEntity.ok(infoResponse);
-
-
-
-
     }
+
 }

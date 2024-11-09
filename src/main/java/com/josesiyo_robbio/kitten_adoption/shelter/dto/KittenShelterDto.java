@@ -24,31 +24,21 @@ public class KittenShelterDto
     @Positive(message = "Age must be a positive number")
     private int age;
 
+    @NotNull(message = "ID cannot be null")
     private Long id;
 
-    public KittenShelterDto() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    public KittenShelterDto() { }
 
 
     public KittenShelterDto(Long id, String name, String breed, String description, String photo, Boolean adopted, int age)
     {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.adopted = adopted;
-        this.breed = breed;
-        this.description = description;
-        this.photo = photo;
+        this.id             =   id;
+        this.name           =   name;
+        this.age            =   age;
+        this.adopted        =   adopted;
+        this.breed          =   breed;
+        this.description    =   description;
+        this.photo          =   photo;
     }
 
 
@@ -59,6 +49,7 @@ public class KittenShelterDto
     public String getPhoto()        { return photo;         }
     public Boolean isAdopted()      { return adopted;       }
     public int getAge()             { return age;           }
+    public Long getId()             { return id;            }
 
 
     // SETTERS
@@ -68,5 +59,6 @@ public class KittenShelterDto
     public void setPhoto(String photo)              { this.photo = photo;               }
     public void setAdopted(boolean adopted)         { this.adopted = adopted;           }
     public void setAge(int age)                     { this.age = age;                   }
+    public void setId(Long id)                      { this.id = id;                     }
 
 }

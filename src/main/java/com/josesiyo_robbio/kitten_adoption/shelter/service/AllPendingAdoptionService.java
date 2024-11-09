@@ -6,9 +6,10 @@ import com.josesiyo_robbio.kitten_adoption.shelter.dto.ApplicationStatusDto;
 import com.josesiyo_robbio.kitten_adoption.shelter.repository.AdoptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
+
 
 @Service
 public class AllPendingAdoptionService
@@ -36,7 +37,6 @@ public class AllPendingAdoptionService
                         adoption.getKittenId()
                 )
         ).collect(Collectors.toList());
-
     }
 
 }

@@ -4,19 +4,16 @@ public class ApprovedAdoptionResponse
 {
     private String message;
 
+
     // Constructor that sets the message
-    public ApprovedAdoptionResponse(String message) {
-        this.message = message;  // Ensure the message field is set
-    }
-
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
+    public ApprovedAdoptionResponse(String message)
+    {
         this.message = message;
     }
 
+
+    //GETTERS AND SETTERS
+    public String getMessage()              { return message;           }
+    public void setMessage(String message)  { this.message = message;   }
 
 }

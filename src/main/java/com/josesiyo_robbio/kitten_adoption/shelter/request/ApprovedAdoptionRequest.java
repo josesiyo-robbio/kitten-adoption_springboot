@@ -6,21 +6,13 @@ public class ApprovedAdoptionRequest
     private Long kittenId;
 
 
-    public Long getKittenId() {
-        return kittenId;
-    }
+    //GETTERS
+    public Long getKittenId() { return kittenId;        }
+    public Long getAdoptionId() { return adoptionId;    }
 
-    public void setKittenId(Long kittenId) {
-        this.kittenId = kittenId;
-    }
 
-    public Long getAdoptionId() {
-        return adoptionId;
-    }
-
-    public void setAdoptionId(Long adoptionId) {
-        this.adoptionId = adoptionId;
-    }
-
+    //SETTERS
+    public void setKittenId(Long kittenId)      { this.kittenId = kittenId;         }
+    public void setAdoptionId(Long adoptionId)  { this.adoptionId = adoptionId;     }
 
 }

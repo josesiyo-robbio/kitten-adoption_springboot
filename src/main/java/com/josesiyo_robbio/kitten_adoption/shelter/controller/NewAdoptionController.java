@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
 @RequestMapping("/api/shelter")
 public class NewAdoptionController
 {
     @Autowired
     private  NewAdoptionService newAdoptionService;
+
 
     @PostMapping("/add")
     public ResponseEntity<NewAdoptionResponse> addAdoptionRequest(@Valid @RequestBody NewAdoptionRequest newAdoptionRequest)
@@ -35,13 +38,12 @@ public class NewAdoptionController
         //call the service for the result
         AdoptionDto addAdoption = newAdoptionService.newAdoptionReq(adoptionDto);
 
+
         //convert dto to response
         NewAdoptionResponse newAdoptionResponse = new NewAdoptionResponse();
         newAdoptionResponse.setMessage("kitty request added successfully");
 
         return ResponseEntity.ok(newAdoptionResponse);
-
-
     }
 
 }

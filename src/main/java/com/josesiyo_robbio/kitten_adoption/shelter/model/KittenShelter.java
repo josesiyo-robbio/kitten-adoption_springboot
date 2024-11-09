@@ -2,6 +2,8 @@ package com.josesiyo_robbio.kitten_adoption.shelter.model;
 
 import jakarta.persistence.*;
 
+
+
 @Entity
 @Table(name = "kittens")
 public class KittenShelter

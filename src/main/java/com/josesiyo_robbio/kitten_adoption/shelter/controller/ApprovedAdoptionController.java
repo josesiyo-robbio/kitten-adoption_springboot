@@ -1,6 +1,5 @@
 package com.josesiyo_robbio.kitten_adoption.shelter.controller;
 
-
 import com.josesiyo_robbio.kitten_adoption.shelter.request.ApprovedAdoptionRequest;
 import com.josesiyo_robbio.kitten_adoption.shelter.response.ApprovedAdoptionResponse;
 import com.josesiyo_robbio.kitten_adoption.shelter.service.ApprovedAdoptionService;
@@ -13,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
 @RequestMapping("/api/shelter")
 public class ApprovedAdoptionController
@@ -21,7 +22,9 @@ public class ApprovedAdoptionController
     @Autowired
     private  ApprovedAdoptionService approvedAdoptionService;
 
-    public void setApprovedAdoptionService(ApprovedAdoptionService approvedAdoptionService) {
+
+    public void setApprovedAdoptionService(ApprovedAdoptionService approvedAdoptionService)
+    {
         this.approvedAdoptionService = approvedAdoptionService;
     }
 
@@ -43,8 +46,6 @@ public class ApprovedAdoptionController
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ApprovedAdoptionResponse("Error: " + e.getMessage()));
         }
-
     }
-
 
 }
