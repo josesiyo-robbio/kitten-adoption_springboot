@@ -43,8 +43,7 @@ public class ApprovedAdoptionController
         catch (Exception e)
         {
             // Return a 500 Internal Server Error if something goes wrong
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ApprovedAdoptionResponse("Error: " + e.getMessage()));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ApprovedAdoptionResponse("Error: " + e.getMessage()));
         }
     }
 
