@@ -70,7 +70,7 @@ POST /api/shelter/approved
 
 ## Technical Stack
 - **Framework**: Spring Boot
-- **Build Tool**: Maven/Gradle
+- **Build Tool**: Gradle
 - **Java Version**: 17
 - **Architecture**: REST API, Domain-Driven Design
 - **Design Pattern**: MVC
