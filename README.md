@@ -96,7 +96,7 @@ Example success response:
 
 ## Setup Requirements
 1. Java 17
-2. Maven/Gradle
+2. Gradle
 3. Database configuration
 4. Spring Boot properties
 
