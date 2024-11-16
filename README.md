@@ -1,4 +1,4 @@
-# Kitten Adoption 
+# Kitten Adoption
 ## Overview
 This REST API is designed to manage a kitten adoption platform, allowing shelters to manage kittens and adoption requests. Built with Spring Boot, it follows Domain-Driven Design principles and REST architecture best practices.
 
@@ -76,12 +76,23 @@ POST /api/shelter/approved
 - **Design Pattern**: MVC
 
 ## API Response Format
-All endpoints return standardized responses:
+All endpoints return standardized responses with:
 - Appropriate HTTP status code
 - Response message
 - Data payload when applicable
 
-Example success response:
+Example success response for adding a kitten:
+```json
+{
+    "name": "Luna",
+    "breed": "Siamese",
+    "description": "Playful and friendly kitten",
+    "photo": "luna.jpg",
+    "age": 3
+}
+```
+
+Example success response for adoption request:
 ```json
 {
     "message": "kitty request added successfully"
@@ -93,6 +104,17 @@ Example success response:
 - 404 Not Found: Resource not found
 - 500 Internal Server Error: Server-side issues
 - Standardized error responses
+
+Example error response:
+```json
+{
+    "timestamp": "2024-03-15T12:00:00Z",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Invalid kitten data provided",
+    "path": "/api/kitty/add"
+}
+```
 
 ## Setup Requirements
 1. Java 17
@@ -109,13 +131,9 @@ git clone [repository-url]
 cd kitten-adoption-api
 
 # Build the project
-mvn clean install
-# or
 gradle clean build
 
 # Run the application
-mvn spring-boot:run
-# or
 gradle bootRun
 ```
 
@@ -127,11 +145,69 @@ DB_PASSWORD=your_database_password
 SERVER_PORT=your_server_port
 ```
 
+## Build Configuration
+```groovy
+plugins {
+    id 'org.springframework.boot' version '3.x.x'
+    id 'io.spring.dependency-management'
+    id 'java'
+}
 
-## Contributing
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    // Testing dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+    // Add other dependencies as needed
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+```
+
+## Example Requests
+
+### Adding a New Kitten
+```bash
+curl -X POST http://localhost:8080/api/kitty/add \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Luna",
+    "breed": "Siamese",
+    "description": "Playful and friendly kitten",
+    "photo": "luna.jpg",
+    "age": 3
+  }'
+```
+
+### Submitting an Adoption Request
+```bash
+curl -X POST http://localhost:8080/api/shelter/add \
+  -H "Content-Type: application/json" \
+  -d '{
+    "kittenId": 1,
+    "applicant_name": "John Doe",
+    "phoneNumber": "1234567890",
+    "email": "john@example.com",
+    "message": "I would love to adopt Luna",
+    "socialMediaUrl": "https://social.example.com/john"
+  }'
+```
+
+
+
+## Acknowledgments
+* Spring Boot team for the excellent framework
+* All contributors who participate in this project
