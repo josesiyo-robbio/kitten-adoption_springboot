@@ -1,4 +1,4 @@
-# Kitten Adoption API
+# Kitten Adoption 
 ## Overview
 This REST API is designed to manage a kitten adoption platform, allowing shelters to manage kittens and adoption requests. Built with Spring Boot, it follows Domain-Driven Design principles and REST architecture best practices.
 
@@ -127,24 +127,6 @@ DB_PASSWORD=your_database_password
 SERVER_PORT=your_server_port
 ```
 
-## Build Configuration
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-
-</dependencies>
-```
 
 ## Contributing
 1. Fork the repository
